@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <List />
-  </div>
+  <header id="app">
+    <List :listdata="items" @clickedItem="getClickedItem"></List>
+
+    <h3>Data : {{ clickedItem }}</h3>
+  </header>
 </template>
 
 <script>
@@ -13,7 +15,13 @@ export default {
   components: { List },
   data () {
     return {
-     items: ['Dev Front-End', 'Dev Back-End', 'Dev Full Stack']
+     items: ['Dev Front-End', 'Dev Back-End', 'Dev Full Stack'],
+     clickedItem: ''
+    }
+  },
+  methods: {
+    getClickedItem(value){
+      this.clickedItem = value;
     }
   }
 }
